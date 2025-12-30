@@ -1,16 +1,14 @@
-streamlit
-# 1. 核心修复：锁定 Numpy 版本，防止编译失败
+# 1. 唯一必须锁定的核心库 (防止编译失败)
 numpy<2.0.0
 
-# 2. 核心修复：使用 headless OpenCV，体积小且不依赖图形界面
+# 2. 必须先装的无头版 OpenCV
 opencv-python-headless
 
-# 3. 核心库：锁定 Paddle 版本，防止下载最新版过大
+# 3. Paddle 核心 (这是最占内存的，放中间)
 paddlepaddle==2.6.1
+
+# 4. OCR 工具
 paddleocr>=2.7.0
 
-# 4. 关键依赖：锁定 protobuf 避免与 Streamlit 冲突
-protobuf==3.20.3
-
-# 5. 业务库
+# 5. 业务功能
 python-docx
