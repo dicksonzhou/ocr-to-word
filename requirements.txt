@@ -1,8 +1,16 @@
 streamlit
+# 关键修复1：强制锁定 numpy 版本小于 2.0，防止与 Paddle 冲突
+numpy<2.0.0
+
+# 关键修复2：使用 headless 版 OpenCV，避免缺少 libGL 报错，且安装更快
+opencv-python-headless
+
+# 核心库：锁定一个体积适中且稳定的版本
 paddlepaddle==2.6.1
 paddleocr>=2.7.0
+
+# 其他依赖
 python-docx
 Pillow
-numpy
-opencv-python-headless
+# 关键修复3：锁定 protobuf 版本以兼容 Streamlit 和 Paddle
 protobuf==3.20.3
