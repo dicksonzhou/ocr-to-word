@@ -1,16 +1,18 @@
+# 1. 优先锁定基础库，防止反复卸载重装
 streamlit
-# 关键修复1：强制锁定 numpy 版本小于 2.0，防止与 Paddle 冲突
 numpy<2.0.0
+protobuf==3.20.3
 
-# 关键修复2：使用 headless 版 OpenCV，避免缺少 libGL 报错，且安装更快
+# 2. 使用 Headless 版 OpenCV (必须在 paddleocr 之前安装)
 opencv-python-headless
 
-# 核心库：锁定一个体积适中且稳定的版本
+# 3. 安装 Paddle 核心 (这是最容易崩溃的一步)
+# 我们指定 2.6.1 版本，相对稳定且兼容性好
 paddlepaddle==2.6.1
+
+# 4. 安装 OCR 工具
 paddleocr>=2.7.0
 
-# 其他依赖
+# 5. 其他工具
 python-docx
 Pillow
-# 关键修复3：锁定 protobuf 版本以兼容 Streamlit 和 Paddle
-protobuf==3.20.3
